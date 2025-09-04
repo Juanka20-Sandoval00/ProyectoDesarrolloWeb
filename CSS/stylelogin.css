@@ -1,0 +1,50 @@
+
+/* Auth styles for Bonanza Tecpán */
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(900px 300px at 70% -60px, var(--bone-200), transparent),
+    linear-gradient(180deg, #ffffff, var(--bone-50));
+}
+.auth-card {
+  width: min(420px, 92vw);
+  background: #fff;
+  border: 1px solid var(--bone-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 22px;
+}
+.auth-header { display:flex; align-items:center; gap:12px; margin-bottom: 10px; }
+.auth-header img { width: 44px; height: 44px; }
+.auth-title { font-family: AlfaSlabOne, serif; color: var(--cowboy-brown-900); font-size: 26px; }
+.auth-sub { color: var(--cowboy-brown-500); font-weight: 700; margin-bottom: 10px; }
+
+.form-row { display: grid; gap: 6px; margin: 12px 0; }
+.input {
+  padding: 12px 14px;
+  border: 1px solid var(--bone-200);
+  border-radius: var(--radius-md);
+  outline: none;
+}
+.input:focus { border-color: var(--cowboy-brown-500); box-shadow: 0 0 0 3px rgba(181,110,59,.15); }
+.field {
+  position: relative;
+}
+.toggle-eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-weight: 800;
+  color: var(--cowboy-brown-700);
+}
+.row-inline { display:flex; align-items:center; justify-content: space-between; gap: 12px; }
+.helper a { color: var(--cowboy-brown-700); font-weight: 700; text-decoration:none; }
+.helper a:hover { text-decoration: underline; }
+.note { color: var(--cowboy-brown-500); font-size: .92rem; }
+.footer-min { margin-top: 12px; text-align:center; color: var(--cowboy-brown-500); }

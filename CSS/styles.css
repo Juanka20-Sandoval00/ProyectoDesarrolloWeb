@@ -1,0 +1,89 @@
+
+/* Bonanza Tecpán – UI Kit (by ChatGPT) */
+/* Color tokens */
+:root {
+  --cowboy-brown-900: #4E2A1A;
+  --cowboy-brown-700: #6B3B23;
+  --cowboy-brown-500: #8A4B2A;
+  --saddle-300: #B56E3B;
+  --sunset-400: #F2992E;
+  --bone-50: #FFF9F4;
+  --bone-200: #F3E6DA;
+  --ink-900: #1B1411;
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 4px 12px rgba(0,0,0,.08);
+  --shadow-md: 0 8px 20px rgba(0,0,0,.14);
+}
+
+@font-face {
+  font-family: "AlfaSlabOne";
+  src: url("https://fonts.gstatic.com/s/alfaslabone/v17/6NUQ8FmMKwSEKjnm5-4v-4Jh2dxp.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "InterVar";
+  src: url("https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMa.woff2") format("woff2");
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bone-50); color: var(--ink-900); font-family: InterVar, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.45; }
+img { max-width: 100%; display: block; }
+
+.container { width: min(1100px, 92%); margin: 0 auto; }
+
+.nav {
+  position: sticky; top: 0; z-index: 40;
+  background: white; border-bottom: 1px solid var(--bone-200);
+  backdrop-filter: saturate(140%) blur(6px);
+}
+
+.nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand img { width: 42px; height: 42px; }
+.brand .title { font-family: AlfaSlabOne, serif; letter-spacing: 1px; color: var(--cowboy-brown-900); font-size: 22px; }
+
+.nav a { text-decoration: none; color: var(--cowboy-brown-700); font-weight: 600; padding: 8px 12px; border-radius: var(--radius-sm); }
+.nav a:hover { background: var(--bone-200); }
+
+.hero {
+  background: radial-gradient(1200px 420px at 50% -60px, var(--bone-200), transparent) , linear-gradient(180deg, white, var(--bone-50));
+  padding: 40px 0 24px;
+}
+.hero .content { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: center; }
+@media (max-width: 900px) { .hero .content { grid-template-columns: 1fr; } }
+
+.badge { color: var(--cowboy-brown-700); background: #ffffff; border:1px solid var(--bone-200); padding: 6px 10px; border-radius: 100px; width: fit-content; font-weight:700; display:inline-flex; gap:8px; align-items:center; box-shadow: var(--shadow-sm);}
+
+.hero h1 { font-family: AlfaSlabOne, serif; font-size: clamp(34px, 5.2vw, 56px); color: var(--cowboy-brown-900); margin: 10px 0; line-height: 1.05; }
+.hero p { font-size: 18px; max-width: 60ch; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+.btn { border: none; cursor: pointer; padding: 12px 18px; border-radius: var(--radius-md); font-weight: 700; }
+.btn-primary { background: var(--cowboy-brown-700); color: white; box-shadow: var(--shadow-md); }
+.btn-primary:hover { background: var(--cowboy-brown-900); }
+.btn-ghost { background: white; color: var(--cowboy-brown-700); border: 1px solid var(--bone-200); }
+.btn-ghost:hover { border-color: var(--cowboy-brown-500); }
+
+.section { padding: 36px 0; }
+.section h2 { font-family: AlfaSlabOne, serif; color: var(--cowboy-brown-900); font-size: 32px; margin: 0 0 16px; }
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+
+.card { background: #fff; border: 1px solid var(--bone-200); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); overflow: hidden; }
+.card img.cover { height: 160px; object-fit: cover; width: 100%; background: var(--bone-200); }
+.card .p { padding: 14px; }
+.card .title { font-weight: 800; color: var(--cowboy-brown-700); }
+.card .meta { color: var(--cowboy-brown-500); font-weight: 700; }
+.price { color: var(--sunset-400); font-weight: 900; }
+
+.kpi { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+.kpi .item { background: white; border:1px solid var(--bone-200); border-radius: var(--radius-md); padding: 16px; text-align: center; }
+.kpi .item .num { font-family: AlfaSlabOne, serif; font-size: 28px; color: var(--cowboy-brown-900); }
+.kpi .item .lbl { color: var(--cowboy-brown-500); font-weight: 700; }
+
+.footer { padding: 28px 0 60px; text-align: center; color: var(--cowboy-brown-500); }
+.footer a { color: var(--cowboy-brown-700); text-decoration: none; font-weight: 700; }
