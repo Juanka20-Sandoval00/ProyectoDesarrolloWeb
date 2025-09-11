@@ -4,13 +4,13 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Iniciar sesión · Bonanza Tecpán</title>
-  <link rel="stylesheet" href="/CSS/stylelogin.css"/>
-  <link rel="stylesheet" href="/CSS/styles.css"/>
+  <link rel="stylesheet" href="CSS/stylelogin.css"/>
+  <link rel="stylesheet" href="CSS/styles.css"/>
 </head>
 <body class="auth-shell">
   <main class="auth-card" role="main">
     <div class="auth-header">
-      <img src="/IMAGENES/logo.png" alt="Logo Bonanza Tecpán">
+      <img src="IMAGENES/logo.png" alt="Logo Bonanza Tecpán">
       <div>
         <div class="auth-title">Bonanza Tecpán</div>
         <div class="auth-sub">Acceso al sistema</div>
@@ -61,7 +61,7 @@
       return;
     }
 
-    window.location.href = 'index.html?login=ok';
+    window.location.assign('/ProyectoDesarrolloWeb/index.php?login=ok');
   });
   </script>
 </body>
