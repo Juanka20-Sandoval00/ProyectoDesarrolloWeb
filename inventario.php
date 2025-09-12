@@ -12,7 +12,7 @@
 <header class="nav">
   <div class="container nav-inner">
     <div class="brand">
-      <img src="IMAGENES/logo.png" alt="Bonanza Tecpán logo"/>
+      <img src="IMG/logo.png" alt="Bonanza Tecpán logo"/>
       <div class="title">Bonanza Tecpán</div>
     </div>
     <nav class="menu tabs">
