@@ -15,10 +15,10 @@
       <div class="title">Bonanza Tecpán</div>
     </div>
     <nav class="menu tabs">
-      <a href="menu.php" target="_blank" class="">Menú</a>
-      <a href="ordenes.php" target="_blank" class="">Órdenes</a>
-      <a href="reservas.php" target="_blank" class="">Reservas</a>
-      <a href="inventario.php" target="_blank" class="">Inventario</a>
+      <a href="menu.php"  class="">Menú</a>
+      <a href="ordenes.php"  class="">Órdenes</a>
+      <a href="reservas.php"  class="">Reservas</a>
+      <a href="inventario.php"  class="">Inventario</a>
     </nav>
   </div>
 </header>
@@ -30,10 +30,10 @@
       <h1>Restaurante Bonanza <span style="color:#F2992E">BONANZA</span></h1>
       <p>Gestione su restaurante con un sistema ligero y moderno: menú digital, órdenes, reservas e inventario, todo en un solo lugar.</p>
       <div class="cta">
-        <a class="btn btn-primary" href="menu.php" target="_blank">Ver Menú</a>
-        <a class="btn btn-ghost" href="ordenes.php" target="_blank">Ver Órdenes</a>
-        <a class="btn btn-ghost" href="reservas.php" target="_blank">Reservas</a>
-        <a class="btn btn-ghost" href="inventario.php" target="_blank">Inventario</a>
+        <a class="btn btn-primary" href="menu.php" >Ver Menú</a>
+        <a class="btn btn-ghost" href="ordenes.php" >Ver Órdenes</a>
+        <a class="btn btn-ghost" href="reservas.php" >Reservas</a>
+        <a class="btn btn-ghost" href="inventario.php" >Inventario</a>
       </div>
     </div>
     <div>
