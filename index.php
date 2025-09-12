@@ -10,7 +10,7 @@
 <body class="auth-shell">
   <main class="auth-card" role="main">
     <div class="auth-header">
-      <img src="IMAGENES/logo.png" alt="Logo Bonanza Tecpán">
+      <img src="IMG/logo.png" alt="Logo Bonanza Tecpán">
       <div>
         <div class="auth-title">Bonanza Tecpán</div>
         <div class="auth-sub">Acceso al sistema</div>
