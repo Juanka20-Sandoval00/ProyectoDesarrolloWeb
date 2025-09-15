@@ -1,9 +1,13 @@
+<?php
+include 'conexionBD.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Iniciar sesión · Bonanza Tecpán</title>
+  <title>Iniciar sesión</title>
   <link rel="stylesheet" href="CSS/stylelogin.css"/>
   <link rel="stylesheet" href="CSS/styles.css"/>
 </head>
