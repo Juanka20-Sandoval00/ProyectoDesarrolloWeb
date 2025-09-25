@@ -1,0 +1,35 @@
+/* Tabla de reservas */
+.tabla-reservas {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-reservas th,
+.tabla-reservas td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.tabla-reservas th {
+  background-color: #f2f2f2;
+}
+
+/* Inputs del formulario de reservas */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;   /* gris suave, no negro */
+  outline: none;
+  width: 100%;              /* que ocupe todo el ancho de la celda */
+  box-sizing: border-box;   /* evita que el padding desajuste */
+}
+
+/* Efecto al hacer clic */
+input:focus {
+  border-color: #4E2A1A;    /* café corporativo */
+  box-shadow: 0 0 4px rgba(78, 42, 26, 0.5);
+}
