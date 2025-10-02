@@ -1,0 +1,167 @@
+:root{
+      /* Ajusta estos colores para igualar tus páginas PHP */
+      --bonanza-bg: #0f0e0d;         /* fondo principal */
+      --bonanza-surface: #1b1715;    /* tarjetas/sections */
+      --bonanza-primary: #4E2A1A;    /* café Bonanza */
+      --bonanza-accent: #E6C07B;     /* dorado/acento */
+      --bonanza-text: #f6f3ee;       /* texto principal */
+      --muted: #b9b1a8;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --grad: radial-gradient(1200px 600px at 80% -20%, rgba(230,192,123,.15), transparent 60%),
+              radial-gradient(900px 600px at -10% 20%, rgba(78,42,26,.35), transparent 60%);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: "Outfit", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bonanza-bg);
+      color: var(--bonanza-text);
+      line-height:1.5;
+      background-image: var(--grad);
+    }
+
+    /* ---------- NAV ---------- */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(15,14,13,.85), rgba(15,14,13,.55));
+      border-bottom: 1px solid rgba(230,192,123,.15);
+    }
+    .nav__wrap{
+      max-width: 1100px; margin:0 auto; padding: .6rem 1rem;
+      display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    }
+    .brand{
+      display:flex; align-items:center; gap:.7rem; text-decoration:none; color:var(--bonanza-text);
+      font-weight:700; letter-spacing:.5px;
+    }
+    .brand .logo{
+      width:38px; height:38px; border-radius:50%;
+      background: conic-gradient(from 120deg, var(--bonanza-accent), var(--bonanza-primary));
+      box-shadow: 0 0 0 3px rgba(230,192,123,.15);
+    }
+    .menu{display:flex; gap:.6rem; flex-wrap:wrap}
+    .menu a{
+      color:var(--bonanza-text); text-decoration:none; font-weight:600;
+      padding:.5rem .9rem; border-radius:999px; position:relative; overflow:hidden;
+      transition: transform .15s ease;
+      border:1px solid rgba(230,192,123,.15);
+      background: rgba(27,23,21,.65);
+    }
+    .menu a:hover{ transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,.25) }
+    .cta{
+      background: linear-gradient(135deg, var(--bonanza-accent), #f0d59b);
+      color:#211; border:none !important;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero{
+      max-width:1100px; margin: 2.2rem auto; padding: 1.2rem 1rem 0;
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:2rem; align-items:center;
+    }
+    .hero h1{
+      font-size: clamp(2rem, 1.2rem + 3.2vw, 3.5rem);
+      line-height:1.1; margin:.2rem 0 .6rem;
+      letter-spacing:.3px;
+    }
+    .highlight{ color: var(--bonanza-accent) }
+    .hero p{ color: var(--muted); font-size:1.05rem; max-width:60ch }
+    .hero .card{
+      background: linear-gradient(160deg, rgba(230,192,123,.08), rgba(78,42,26,.35));
+      border: 1px solid rgba(230,192,123,.15);
+      border-radius: var(--radius); box-shadow: var(--shadow);
+      padding:1.2rem;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section{ padding: 3rem 1rem }
+    .container{ max-width:1100px; margin:0 auto }
+    .grid-3{
+      display:grid; gap:1rem;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+    .tile{
+      background: var(--bonanza-surface);
+      border:1px solid rgba(230,192,123,.14);
+      border-radius: var(--radius);
+      padding:1.1rem 1.1rem;
+      box-shadow: var(--shadow);
+    }
+    .tile h3{ margin:.2rem 0 .35rem }
+    .sep{ height:1px; background: linear-gradient(90deg, transparent, rgba(230,192,123,.25), transparent); margin:.6rem 0 1rem }
+
+    /* ---------- 3D CAROUSEL ---------- */
+    .carousel-wrap{
+      perspective: 1200px;
+      margin-top: .5rem;
+    }
+    .carousel{
+      position:relative;
+      width:100%; height: 380px;
+      transform-style: preserve-3d;
+      transition: transform 1s cubic-bezier(.2,.7,.2,1);
+    }
+    .slide{
+      position:absolute; top:0; left:50%; transform-style:preserve-3d;
+      width: 280px; height: 360px; margin-left: -140px;
+      background: linear-gradient(180deg, rgba(27,23,21,.95), rgba(27,23,21,.75));
+      border:1px solid rgba(230,192,123,.15);
+      border-radius: calc(var(--radius) + 6px);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      display:flex; flex-direction:column;
+    }
+    .slide img{ width:100%; height:170px; object-fit:cover; display:block; }
+    .slide .content{ padding:.9rem 1rem; display:flex; flex-direction:column; gap:.35rem }
+    .badge{
+      display:inline-block; font-size:.75rem; font-weight:700; letter-spacing:.4px;
+      padding:.25rem .6rem; border-radius:999px; color:#211;
+      background: linear-gradient(135deg, var(--bonanza-accent), #f6dba7);
+      align-self:flex-start;
+    }
+    .price{ color: var(--bonanza-accent); font-weight:700; font-size:1.1rem }
+
+    /* Dots */
+    .dots{ display:flex; justify-content:center; gap:.5rem; margin-top:.8rem }
+    .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: rgba(230,192,123,.35); border:1px solid rgba(230,192,123,.4);
+    }
+    .dot.active{ background: var(--bonanza-accent) }
+
+    /* ---------- FOOTER ---------- */
+    footer{
+      border-top: 1px solid rgba(230,192,123,.15);
+      background: #141312;
+      padding: 1.2rem;
+      color: var(--muted);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 960px){
+      .hero{ grid-template-columns: 1fr; text-align: center }
+      .hero .card{ order:-1 }
+    }
+    @media (max-width: 720px){
+      .grid-3{ grid-template-columns: 1fr }
+      .carousel{ height: 340px }
+      .slide{ width: 75vw; max-width: 360px; height: 320px; margin-left: calc(-.5 * 75vw) }
+    }
+    .carousel-wrap {
+  perspective: 1200px;
+  margin-top: 2rem;  
+}
+#platillos h2 {
+  margin-bottom: 1rem; /* espacio debajo del título */
+}
+
+#platillos p {
+  margin-bottom: 7.5rem; /* espacio extra debajo de la descripción */
+}
+
+.carousel-wrap {
+  perspective: 1200px;
+  margin-top: 0; /* quitamos el espacio mínimo que tenía */
+}
