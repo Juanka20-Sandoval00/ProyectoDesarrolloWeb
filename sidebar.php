@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="flex min-h-screen">
+  <div class="flex min-h-screen">
     <!-- Sidebar -->
     <aside class="w-64 bg-[#4E2A1A] text-white flex flex-col">
       <div class="px-5 py-6 flex items-center gap-3 border-b border-white/10">
@@ -33,7 +33,7 @@
         <a href="entregas_domicilio.php" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-white/10 transition">
           <!-- icono órdenes -->
           <img src="IMG/icono_entregas_domicilio.png" alt="iconoÓrdenes" class="w-6 h-6 shrink-0">
-          <span>Órdenes</span>
+          <span>Entregas a Domicilio</span>
         </a>
 
         <a href="reservas.php" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-white/10 transition">
@@ -55,7 +55,7 @@
         </a>
       </nav>
 
-        <a href="login.php" target="_blank" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-white/10 transition">
+        <a href="login.php" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-white/10 transition">
           <!-- icono inventario -->
           <img src="IMG/icono_CerrarSesion.png" alt="iconoInventario" class="w-6 h-6 shrink-0">
           <span><b>Cerrar Sesion</b></span>
