@@ -1,13 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido a Bonanza Tecpán</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bonanza Tecpán — Restaurante</title>
+  <meta name="description" content="Restaurante Bonanza Tecpán: tradición, sabor y calidez. Conoce nuestra misión, visión y platillos destacados." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="CSS/style_paginaweb.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <!-- esta es la pagina de inicio (vista cliente) -->
-    <h1>Bienvenido a Bonanza Tecpán</h1>
-    <button><a href="login.php">inicio de Sesion</a></button>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Principal">
+    <div class="nav__wrap">
+      <a class="brand" href="#inicio" aria-label="Inicio Bonanza">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Bonanza Tecpán</span>
+      </a>
+      <div class="menu" role="menubar">
+        <a role="menuitem" href="#quienes">Quiénes somos</a>
+        <a role="menuitem" href="#mision">Misión</a>
+        <a role="menuitem" href="#vision">Visión</a>
+        <a role="menuitem" href="#platillos">Platillos</a>
+        <a role="menuitem" class="cta" href="#contacto">Reservar</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="inicio" class="hero">
+    <div>
+      <h1>Sabores con <span class="highlight">tradición</span> y calidez chapina</h1>
+      <p>En <strong>Bonanza Tecpán</strong> celebramos la cocina de hogar con ingredientes locales y recetas que pasan de generación en generación. Ven a vivir una experiencia auténtica, hecha con pasión.</p>
+    </div>
+    <div class="card" aria-label="Horario y ubicación">
+      <h3 style="margin:.2rem 0 .4rem">Estamos para servirte</h3>
+      <div class="sep"></div>
+      <p><strong>Dirección:</strong> Tecpán, Chimaltenango</p>
+      <p><strong>Horario:</strong> Lun–Dom · 7:00–21:00</p>
+      <p><strong>Reservas:</strong> 502-0000-0000</p>
+    </div>
+  </header>
+
+  <!-- QUIÉNES / MISIÓN / VISIÓN -->
+  <section id="quienes">
+    <div class="container">
+      <div class="grid-3">
+        <article class="tile">
+          <h3>Quiénes somos</h3>
+          <div class="sep"></div>
+          <p>Somos una familia de cocineros que comparte el amor por la gastronomía guatemalteca. Nuestro proyecto combina técnicas tradicionales con un servicio cálido para crear momentos memorables.</p>
+        </article>
+        <article class="tile" id="mision">
+          <h3>Misión</h3>
+          <div class="sep"></div>
+          <p>Servir comida fresca y honesta que haga sentir en casa, promoviendo proveedores locales y brindando un trato cercano en cada visita.</p>
+        </article>
+        <article class="tile" id="vision">
+          <h3>Visión</h3>
+          <div class="sep"></div>
+          <p>Ser el referente de cocina tradicional en Tecpán, reconocidos por calidad, consistencia y nuestro impacto positivo en la comunidad.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAROUSEL 3D -->
+  <section id="platillos" aria-label="Platillos principales">
+    <div class="container">
+      <h2 style="margin:.2rem 0 .4rem">Platillos principales</h2>
+      <p style="color:var(--muted); margin-top:0">En este apartado podemos encontrar los platillos principales</p>
+
+      <div class="carousel-wrap">
+        <div class="carousel" id="carousel" aria-live="polite">
+          <!-- Coloca tus imágenes reales -->
+          <figure class="slide" data-title="Pepián de Pollo" data-precio="Q48">
+            <img src="IMG/Platillo 1.jpg" alt="Pepián de pollo con arroz y tamalito" />
+            <figcaption class="content">
+              <span class="badge">Tradicional</span>
+              <h3 style="margin:.2rem 0">Pepián de Pollo</h3>
+              <p style="color:var(--muted)">Receta de la casa, especias tostadas y verduras frescas.</p>
+              <span class="price">Q48</span>
+            </figcaption>
+          </figure>
+
+          <figure class="slide" data-title="Kak'ik" data-precio="Q55">
+            <img src="IMG/Platillo 2.webp" alt="Kak'ik servido con arroz y tamalito" />
+            <figcaption class="content">
+              <span class="badge">Especial</span>
+              <h3 style="margin:.2rem 0">Kak'ik</h3>
+              <p style="color:var(--muted)">Caldo rojo de pavo, aromático y reconfortante.</p>
+              <span class="price">Q55</span>
+            </figcaption>
+          </figure>
+
+          <figure class="slide" data-title="Carne Asada" data-precio="Q52">
+            <img src="IMAGENES/Platillo 3.jpeg" alt="Carne asada al carbón con guarniciones" />
+            <figcaption class="content">
+              <span class="badge">Parrilla</span>
+              <h3 style="margin:.2rem 0">Carne Asada</h3>
+              <p style="color:var(--muted)">Corte al carbón, chimichurri y tortillas al comal.</p>
+              <span class="price">Q52</span>
+            </figcaption>
+          </figure>
+
+          <figure class="slide" data-title="Joconcito" data-precio="Q46">
+            <img src="IMAGENES/Platillo 4.jpg" alt="Jocon verde con pollo" />
+            <figcaption class="content">
+              <span class="badge">De temporada</span>
+              <h3 style="margin:.2rem 0">Joconcito</h3>
+              <p style="color:var(--muted)">Salsa verde de miltomate y cilantro, sabor único.</p>
+              <span class="price">Q46</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="dots" id="dots" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- CONTACTO / FOOTER -->
+  <footer id="contacto">
+    <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem">
+      <div> <span id="y"></span> pendiente </div>
+    </div>
+  </footer>
+
+   <script src="JS/script.js"></script>
+
 </body>
 </html>
