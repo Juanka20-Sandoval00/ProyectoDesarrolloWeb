@@ -1,19 +1,17 @@
-<?php include "sidebar.php"; ?>
+<?php include 'SideBarEmpleado.php'; ?>
 
 <!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Menú Bonanza Tecpán</title>
-  <!-- tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Menú y Platillos</title>
   <link rel="stylesheet" href="CSS/styles.css">
   <meta name="theme-color" content="#4E2A1A"/>
 </head>
 <body class="min-h-screen bg-gray-50 text-gray-800">
 <div class="flex min-h-screen">
-    <!-- Contenido principal -->
+  <!-- ==================== Menu ==================== -->
 <main class="container section">
   <h2>Menú</h2>
   <div class="grid-3">

@@ -1,16 +1,15 @@
-<?php include "sidebar.php"; ?>
+<?php include 'SideBarEmpleado.php'; ?>
 <!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inventario</title>
-  <!-- tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="CSS/styles.css">
   <meta name="theme-color" content="#4E2A1A"/>
 </head>
 <body>
+  <!-- ==================== Inventario, Compras y Perdidas ==================== -->
 <!-- aqui empieza el contenido principal -->
 <main class="container section">
   <h2>Inventario</h2>
@@ -48,10 +47,5 @@
     </table>
   </div>
 </main>
-
-
-<footer class="footer">
-  Hecho por Bonanza Tecpán.
-</footer>
 </body>
 </html>

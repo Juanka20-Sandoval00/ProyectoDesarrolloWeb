@@ -65,7 +65,7 @@
       return;
     }
 
-    window.location.assign('principal.php');
+    window.location.assign('Principal.php');
   });
   </script>
 </body>
