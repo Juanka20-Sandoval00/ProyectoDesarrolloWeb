@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Postres — Bonanza Tecpán</title>
+  <meta name="description" content="Postres de Bonanza Tecpán: dulces tradicionales y favoritos de la casa." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS_PaginaWeb/style_postres.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- SIDEBAR -->
+  <aside class="sidebar" aria-label="Navegación lateral">
+    <a class="side__brand" href="index.html#menu">
+      <img class="brand-logo" src="../IMG/logo.png" alt="Logo Bonanza Tecpán">
+      <strong>Bonanza</strong>
+    </a>
+    <nav class="side__menu" role="menubar">
+      <a role="menuitem" class="active" href="index.html">Menú</a>
+      <a role="menuitem" href="../HTML/Bebidas.html">Bebidas</a>
+      <a role="menuitem" href="../HTML/Informacion.html">Información</a>
+      <a role="menuitem" href="../HTML/contacto.html">Reserva</a>
+      
+    </nav>
+  </aside>
+
+  <!-- CONTENIDO -->
+  <main class="content">
+    <header class="postres-hero">
+      <h1 class="section-title">Postres</h1>
+      <p class="hero-sub">Endulza tu experiencia con nuestros deliciosos postres, elaborados con ingredientes frescos y recetas tradicionales de la casa. <br> <br>
+      </p>
+    </header>
+
+    <!-- Carrusel 3D -->
+    <section class="dessert-3d" aria-label="Carrusel de Postres">
+      <div class="carousel-viewport" id="carouselViewport">
+        <div class="carousel3d" id="carousel3d" aria-live="polite">
+          <!-- CARD 1 -->
+          <article class="card3d">
+            <div class="media">
+              <img src="../IMG_PaginaWeb//IMG_Postres/Postre1.jpeg" alt="Cheesecake de Frutos Rojos">
+              <span class="price">Q28</span>
+            </div>
+            <div class="body">
+              <h3>Cheesecake</h3>
+              <p>Base crujiente con crema suave y topping de frutos rojos.</p>
+            </div>
+          </article>
+          <!-- CARD 2 -->
+          <article class="card3d">
+            <div class="media">
+              <img src="../IMG_PaginaWeb//IMG_Postres/postre2.jpg" alt="Banana Split">
+              <span class="price">Q24</span>
+            </div>
+            <div class="body">
+              <h3>Banana Split</h3>
+              <p>Helado artesanal, salsa de chocolate y nueces tostadas.</p>
+            </div>
+          </article>
+          <!-- CARD 3 -->
+          <article class="card3d">
+            <div class="media">
+              <img src="../IMG_PaginaWeb//IMG_Postres/postre3.jpg" alt="Pie de Manzana">
+              <span class="price">Q22</span>
+            </div>
+            <div class="body">
+              <h3>Pie de Manzana</h3>
+              <p>Manzana especiada, masa dorada y bola de helado.</p>
+            </div>
+          </article>
+          <!-- CARD 4 -->
+          <article class="card3d">
+            <div class="media">
+              <img src="../IMG_PaginaWeb//IMG_Postres/postre4.jpg" alt="Flan de la Casa">
+              <span class="price">Q18</span>
+            </div>
+            <div class="body">
+              <h3>Flan Casero</h3>
+              <p>Caramelo suave y textura cremosa, receta tradicional.</p>
+            </div>
+          </article>
+          <!-- CARD 5 -->
+          <article class="card3d">
+            <div class="media">
+              <img src="../IMG_PaginaWeb//IMG_Postres/postre5.jpg" alt="Pastel de Chocolate">
+              <span class="price">Q26</span>
+            </div>
+            <div class="body">
+              <h3>Pastel de Chocolate</h3>
+              <p>Centro fundente de cacao y helado de vainilla.</p>
+            </div>
+          </article>
+          <!-- CARD 6 -->
+          <article class="card3d">
+            <div class="media">
+              <img src="../IMG_PaginaWeb//IMG_Postres/postre6.jpg" alt="Gelatina de Frutas">
+              <span class="price">Q12</span>
+            </div>
+            <div class="body">
+              <h3>Gelatina de Frutas</h3>
+              <p>Mixto de frutas frescas en gelatina clara.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+      <br>
+      <br>
+
+      <!-- Controles -->
+      <div class="controls">
+        <button class="arrow" id="prevBtn" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="dots" id="dots" aria-label="Indicadores"></div>
+        <button class="arrow" id="nextBtn" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </section>
+  </main>
+
+  <script src="../JS_PaginaWeb/script_postres.js"></script>
+</body>
+</html>

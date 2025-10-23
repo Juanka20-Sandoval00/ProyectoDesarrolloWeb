@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bonanza Tecpán — Menú</title>
+  <meta name="description" content="Menú de comidas de Bonanza Tecpán." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS_PaginaWeb/style_paginaweb.css">
+</head>
+<body>
+  <!-- SIDEBAR -->
+  <aside class="sidebar" aria-label="Navegación lateral">
+    <a class="side__brand" href="index.html">
+      <img class="brand-logo" src="../IMG/logo.png" alt="Logo Bonanza Tecpán">
+      <strong>Bonanza</strong>
+    </a>
+    <nav class="side__menu" role="menubar">
+      <a role="menuitem" href="../HTML/Bebidas.html">Bebidas</a>
+      <a role="menuitem" href="../HTML/Postres.html">Postres</a>
+      <a role="menuitem" href="../HTML/Informacion.html">Información</a>
+      <a role="menuitem" href="../HTML/contacto.html">Reserva</a>
+    </nav>
+  </aside>
+
+  <!-- CONTENIDO -->
+  <main class="content">
+    <section id="menu" class="menu">
+      <header class="menu__header">
+        <h2 class="section-title">Menú</h2>
+        <div class="menu__controls">
+          <input id="menuSearch" class="input" type="search" placeholder="Buscar platillo o categoría…" aria-label="Buscar">
+          <select id="menuCategory" class="select" aria-label="Filtrar por categoría">
+            <option value="__ALL__">Todas las categorías</option>
+          </select>
+        </div>
+      </header>
+      <div id="menuGrid" class="grid grid--cards"></div>
+    </section>
+        
+  </main>
+
+  <script src="../JS_PaginaWeb/script_index.js"></script>
+</body>
+</html>

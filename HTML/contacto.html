@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto — Bonanza Tecpán</title>
+  <meta name="description" content="Contáctanos para reservaciones o consultas a través de WhatsApp, Facebook, o encuentra nuestra ubicación en Waze y Maps." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- CSS general del sitio -->
+  <link rel="stylesheet" href="../CSS_PaginaWeb/style_paginaweb.css">
+  <!-- CSS específico de esta página -->
+  <link rel="stylesheet" href="../CSS_PaginaWeb/style_contacto.css">
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <!-- SIDEBAR -->
+  <aside class="sidebar" aria-label="Navegación lateral">
+    <a class="side__brand" href="index.html#menu">
+      <img class="brand-logo" src="../IMG/logo.png" alt="Logo Bonanza Tecpán">
+      <strong>Bonanza</strong>
+    </a>
+    <nav class="side__menu" role="menubar">
+      <a role="menuitem" class="active" href="index.html">Menú</a>
+      <a role="menuitem" href="../HTML/Bebidas.html">Bebidas</a>
+      <a role="menuitem" href="../HTML/Postres.html">Postres</a>
+      <a role="menuitem" href="../HTML/Informacion.html">Información</a>
+
+    </nav>
+  </aside>
+
+  <a class="btn-back--styled" href="index.html"> Regresar al Menú</a>
+
+  <!-- CONTENIDO -->
+  <main class="content">
+    <div class="content-contacto">
+      <h2 class="section-title" style="color:var(--on-dark); text-align:center;">¡Hablemos!</h2>
+      <p style="color:var(--on-dark); text-align:center; margin-bottom: 40px;">
+        Contáctanos por tu medio preferido o encuéntranos. Estamos listos para atenderte.
+      </p>
+
+      <div class="contact-grid">
+        <!-- WhatsApp -->
+        <div class="contact-item">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          <h3>WhatsApp</h3>
+          <p>Envíanos un mensaje para consultas o pedidos.</p>
+          <a class="contact-btn" href="https://wa.me/50255554444" target="_blank" rel="noopener">Escribir ahora</a>
+        </div>
+
+        <!-- Facebook -->
+        <div class="contact-item">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          <h3>Facebook</h3>
+          <p>Síguenos y entérate de nuestras promociones.</p>
+          <a class="contact-btn" href="https://facebook.com/bonanzatecpan" target="_blank" rel="noopener">Ir a Facebook</a>
+        </div>
+
+        <!-- Localización -->
+        <div class="contact-item location-item" tabindex="0" aria-haspopup="true" aria-expanded="false">
+          <div class="location-visible-content">
+            <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
+            <h3>Localización</h3>
+            <p>Ven y visitanos en nuestras instalaciones, puedes utilizar Google Maps o Waze para ubicarnos.</p>
+          </div>
+
+          <div class="location-options" role="group" aria-label="Opciones de navegación">
+            <a class="contact-btn btn-maps"
+               href="https://www.google.com/maps/search/?api=1&query=14.7797,-90.9638"
+               target="_blank" rel="noopener">
+              <i class="fas fa-map"></i> Abrir en Maps
+            </a>
+            <a class="contact-btn btn-waze"
+               href="https://waze.com/ul?ll=14.7797,-90.9638&navigate=yes"
+               target="_blank" rel="noopener">
+              <i class="fab fa-waze"></i> Abrir en Waze
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
