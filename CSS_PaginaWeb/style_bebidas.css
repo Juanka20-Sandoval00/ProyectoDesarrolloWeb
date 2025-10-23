@@ -1,0 +1,219 @@
+:root{
+  /* Paleta */
+  --bg:#c0907e;
+  --bg-soft:#c0907e;
+  --surface:#f0e4d6;
+  --text:#2b1a11;
+  --on-dark:#f7efe7;
+  --primary:#5a341e;
+  --accent:#E6C07B;
+  --muted:#c3b6a7;
+  --shadow:0 12px 30px rgba(0,0,0,.35);
+  --radius:18px;
+}
+
+/* ---------- BASE ---------- */
+*{ box-sizing:border-box }
+html,body{ height:100% }
+body{
+  margin:0;
+  font-family:"Outfit",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(900px 600px at 80% -20%, rgba(230,192,123,.08), transparent 60%),
+    radial-gradient(700px 600px at -10% 20%, rgba(122,74,42,.20), transparent 60%),
+    var(--bg);
+  color:var(--on-dark);
+  line-height:1.5;
+}
+
+.muted{ color:rgba(0,0,0,.55) }
+
+/* ---------- SIDEBAR ---------- */
+.sidebar{
+  position:fixed; inset:0 auto 0 0; width:260px;
+  background:linear-gradient(180deg,var(--bg-soft),#1a0f0a);
+  border-right:1px solid rgba(230,192,123,.15);
+  padding:18px 16px;
+  display:flex; flex-direction:column; gap:16px;
+}
+.side__brand{
+  display:flex; align-items:center; gap:.6rem;
+  text-decoration:none; color:var(--on-dark); font-weight:800;
+}
+.brand-logo{ height:36px; width:auto; max-width:48px; object-fit:contain; border-radius:6px }
+.side__menu{ display:flex; flex-direction:column; gap:.4rem; margin-top:.4rem }
+.side__menu a{
+  text-decoration:none; color:var(--on-dark); font-weight:600;
+  padding:.7rem .9rem; border-radius:12px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(230,192,123,.12);
+  transition:.15s;
+}
+.side__menu a:hover{ transform:translateX(3px); background:rgba(255,255,255,.06) }
+.side__menu a.active{ background:rgba(230,192,123,.18); border-color:rgba(230,192,123,.35) }
+
+/* ---------- CONTENIDO ---------- */
+.content{ margin-left:260px; padding:24px 22px }
+.section-title{ margin:0 0 .8rem; font-size:clamp(22px,2.4vw,28px); font-weight:800 }
+
+/* ---------- MENÚ (buscador + combo + grid) ---------- */
+.menu{ background:transparent }
+.menu__header{
+  display:flex; align-items:center; justify-content:flex-start; gap:12px; flex-wrap:wrap;
+  margin:0 0 12px;
+}
+.menu__controls{ display:flex; gap:.5rem; flex-wrap:wrap }
+.input, .select{
+  padding:.6rem .8rem; border-radius:12px;
+  border:1px solid rgba(0,0,0,.1); outline:none;
+  background:#fff; color:#333; min-width:240px;
+}
+.input::placeholder{ color:#999 }
+
+/* ---------- GRID DE TARJETAS ---------- */
+.grid--cards{
+  display:grid;
+  gap:1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  justify-content:center;
+}
+
+/* ==== TARJETA UNIFORME ==== */
+.card--menu{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background: var(--surface,#fff);
+  border-radius: var(--radius,16px);
+  border:1px solid rgba(90,52,30,.15);
+  box-shadow: var(--shadow,0 10px 25px rgba(0,0,0,.1));
+  overflow:hidden;
+  width:100%;
+  max-width:320px;
+  height:440px; /* 🔹 Todas iguales */
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.card--menu:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 30px rgba(0,0,0,.25);
+}
+
+/* Imagen responsiva con altura fija */
+.card__media{
+  width:100%;
+  height:200px;               /* 🔹 Altura fija para la imagen */
+  overflow:hidden;
+  background:#f6f1e7;
+}
+.card__media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Contenido interno */
+.card__body{
+  padding:1rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  height:calc(100% - 200px);  /* 🔹 Usa el espacio restante */
+}
+
+.card__head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:.75rem;
+}
+.card__title{
+  margin:0;
+  font-weight:700;
+  color:var(--primary);
+  font-size:1.05rem;
+}
+.price{
+  font-weight:800;
+  color:#3b2416;
+  font-size:1rem;
+}
+.card__desc{
+  margin:.5rem 0;
+  color:#3d3d3d;
+  font-size:.93rem;
+  flex-grow:1; /* 🔹 Ocupa el espacio vertical restante */
+}
+.chip{
+  font-size:.8rem;
+  opacity:.8;
+  color:#6a5445;
+  margin-top:auto;
+  text-align:left;
+}
+
+/* Centra resultados individuales */
+#menuGrid{
+  display:grid;
+  grid-auto-flow:row;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  justify-content:center;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1000px){
+  .sidebar{ width:220px }
+  .content{ margin-left:220px }
+}
+@media (max-width:640px){
+  .sidebar{
+    position:fixed; width:100%; height:auto; inset:auto 0 0 0;
+    flex-direction:row; align-items:center; gap:10px;
+    padding:10px 12px; overflow-x:auto;
+    border-right:none; border-top:1px solid rgba(230,192,123,.15);
+  }
+  .content{ margin:0; padding-bottom:90px }
+  .brand-logo{ height:28px; max-width:36px }
+  .card--menu{ height:380px }        /* 🔹 tarjetas más compactas en móvil */
+  .card__media{ height:160px }
+}
+
+
+/* ===== Footer inferior elegante para el precio (sin blanco) ===== */
+.card__footer{
+  margin-top:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.75rem;
+  padding:.65rem .9rem;
+  background: linear-gradient(180deg, rgba(90,52,30,.06), rgba(90,52,30,.12)); /* suave, del mismo tono */
+  border-top:1px solid rgba(90,52,30,.18);
+}
+
+/* “pastilla” del precio, llamativa pero sobria */
+.price-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  padding:.35rem .8rem;
+  border-radius:999px;
+  font-weight:800;
+  color:#2b1a11;
+  background: linear-gradient(135deg, rgba(230,192,123,.95), #f3d9a4);
+  box-shadow:0 6px 16px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.65);
+  white-space:nowrap;
+}
+.price-chip .label{
+  opacity:.85; font-weight:900; text-transform:uppercase; letter-spacing:.3px; font-size:.8rem;
+}
+
+/* el chip de categoría a la izquierda se mantiene discreto */
+.card__footer .chip{ opacity:.9 }
+
+/* (opcional) realce al pasar el mouse, sin cambiar colores */
+.card--menu{ transition: transform .22s ease, box-shadow .22s ease; }
+.card--menu:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 22px 46px rgba(0,0,0,.26);
+}
