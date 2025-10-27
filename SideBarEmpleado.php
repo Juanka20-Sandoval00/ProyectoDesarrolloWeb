@@ -56,9 +56,7 @@
                 <span><b>Cerrar Sesión</b></span>
             </a>
 
-            <div class="mt-auto p-4 text-xs text-white/70 border-t border-white/10 text-center">
-                © <?php echo date('Y'); ?> Bonanza Tecpán
-            </div>
+            
         </aside>
 
 </body>
