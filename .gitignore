@@ -1,2 +1,19 @@
-# para que no suba conexionBD.php a GitHub
-conexionBD.php
+# Ignorar archivos sensibles
+db.php
+config.php
+conexion.php
+
+# Archivos locales
+*.env
+.env.local
+.env.backup
+
+# Configuración del servidor local
+.vscode/
+.idea/
+.DS_Store
+*.log
+
+# Copias temporales o de prueba
+backup/
+temp/
