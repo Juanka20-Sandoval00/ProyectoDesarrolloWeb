@@ -40,7 +40,7 @@
                     <span>Inventario</span>
                 </a>
 
-                <a href="Cliente.php" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-white/10 transition">
+                <a href="Clientes.php" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-white/10 transition">
                     <img src="IMG/icono_Cliente.png" alt="iconoCliente" class="w-6 h-6 shrink-0">
                     <span>Clientes</span>
                 </a>

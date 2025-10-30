@@ -1,164 +1,229 @@
-// ----------------------
-// utilidades de storage
-// ----------------------
-function cargarReservas() {
-  // lee el array guardado en localStorage
-  const data = localStorage.getItem('reservas');
-  return data ? JSON.parse(data) : [];
-}
-
-function guardarReservas(reservas) {
-  // guarda el array (como texto JSON)
-  localStorage.setItem('reservas', JSON.stringify(reservas));
-}
-
-// ----------------------
-// render de la tabla
-// ----------------------
-function renderTabla() {
-  const tbody = document.getElementById('tbodyReservas');
-  const reservas = cargarReservas();
-
-  // limpiamos la tabla
-  tbody.innerHTML = '';
-
-  // volvemos a dibujar fila por fila
-  reservas.forEach((reserva, index) => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${reserva.fecha}</td>
-      <td>${reserva.hora}</td>
-      <td>${reserva.nombre}</td>
-      <td>${reserva.dpi}</td>
-      <td>${reserva.mesa}</td>
-      <td>${reserva.personas}</td>
-      <td><button class="btn btn-warning btn-editar" data-index="${index}">Editar</button></td>
-      <td><button class="btn btn-danger btn-borrar" data-index="${index}">Borrar</button></td>
-    `;
-    tbody.appendChild(tr);
-  });
-}
-
-// ----------------------
-// limpiar formulario
-// ----------------------
-function limpiarForm() {
-  const frm = document.getElementById('frmReserva');
-  frm.reset();
-  document.getElementById('personas').value = 2;
-  // quitamos modo edición
-  editIndex = null;
-  document.getElementById('btnGuardar').textContent = 'Guardar';
-}
-
-// ----------------------
-// estado de edición
-// ----------------------
-let editIndex = null; // null = alta nueva, número = estamos editando esa fila
-
-// ----------------------
-// al cargar la página
-// ----------------------
 document.addEventListener('DOMContentLoaded', () => {
-  renderTabla();
-});
 
-// ----------------------
-// submit del formulario
-// ----------------------
-const frmReserva = document.getElementById('frmReserva');
+    // ===============================
+    // util: cargar / guardar en localStorage
+    // ===============================
+    function cargarReservas() {
+        const data = localStorage.getItem('reservasBonanza');
+        return data ? JSON.parse(data) : [];
+    }
 
-frmReserva.addEventListener('submit', function (ev) {
-  ev.preventDefault(); // no recargar
+    function guardarReservas(arr) {
+        localStorage.setItem('reservasBonanza', JSON.stringify(arr));
+    }
 
-  const fecha     = document.getElementById('fecha').value;
-  const hora      = document.getElementById('hora').value;
-  const nombre    = document.getElementById('nombre').value.trim();
-  const dpi       = document.getElementById('dpi').value.trim();
-  const mesa      = document.getElementById('mesa').value;
-  const personas  = document.getElementById('personas').value;
+    // ===============================
+    // estado en memoria
+    // ===============================
+    let reservas = cargarReservas(); // [{fecha,hora,nombre,dpi,mesa,personas}, ...]
 
-  if (!fecha || !hora || !nombre || !dpi || !mesa || !personas) {
-    alert('Por favor llene todos los campos.');
-    return;
-  }
+    // ===============================
+    // refs DOM
+    // ===============================
+    const frmReserva   = document.getElementById('frmReserva');
+    const fechaInput   = document.getElementById('fecha');
+    const horaInput    = document.getElementById('hora');
+    const nombreInput  = document.getElementById('nombre');
+    const dpiInput     = document.getElementById('dpi');
+    const mesaInput    = document.getElementById('mesa');
+    const persInput    = document.getElementById('personas');
+    const editIndexInp = document.getElementById('editIndex');
 
-  const reservas = cargarReservas();
+    const tbody        = document.getElementById('tbodyReservas');
+    const btnLimpiar   = document.getElementById('btnLimpiar');
 
-  // si estamos editando una fila existente, reemplazamos
-  if (editIndex !== null) {
-    reservas[editIndex] = { fecha, hora, nombre, dpi, mesa, personas };
-  } else {
-    // si es nueva, la agregamos al final
-    reservas.push({ fecha, hora, nombre, dpi, mesa, personas });
-  }
+    // safety check: si no existe el formulario, no sigas
+    if (!frmReserva || !tbody) {
+        console.error("No se encontró frmReserva o tbodyReservas en el DOM. Revisa el include/estructura HTML.");
+        return;
+    }
 
-  // guardamos en localStorage
-  guardarReservas(reservas);
+    // ===============================
+    // render de la tabla
+    // ===============================
+    function renderTabla() {
+        tbody.innerHTML = '';
 
-  // refrescamos la tabla
-  renderTabla();
+        reservas.forEach((reserva, index) => {
+            const tr = document.createElement('tr');
 
-  // limpiamos el form / salimos de modo edición
-  limpiarForm();
-});
+            tr.innerHTML = `
+                <td>${reserva.fecha}</td>
+                <td>${reserva.hora}</td>
+                <td>${reserva.nombre}</td>
+                <td>${reserva.dpi}</td>
+                <td>${reserva.mesa}</td>
+                <td>${reserva.personas}</td>
+                <td>
+                    <button class="btn btn-ghost btn-editar" data-index="${index}">
+                        ✏ Editar
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-primary btn-borrar" data-index="${index}">
+                        🗑 Borrar
+                    </button>
+                </td>
+            `;
 
-// ----------------------
-// click en editar / borrar con SweetAlert2
-// ----------------------
-const tbody = document.getElementById('tbodyReservas');
+            tbody.appendChild(tr);
+        });
 
-tbody.addEventListener('click', function (ev) {
-  const target = ev.target;
+        document.querySelectorAll('.btn-editar').forEach(btn => {
+            btn.addEventListener('click', onEditarClick);
+        });
 
-  // BORRAR
-  if (target.classList.contains('btn-borrar')) {
-    const index = target.getAttribute('data-index');
-    const reservas = cargarReservas();
+        document.querySelectorAll('.btn-borrar').forEach(btn => {
+            btn.addEventListener('click', onBorrarClick);
+        });
+    }
 
-    Swal.fire({
-      title: '¿Eliminar reserva?',
-      text: 'Esta acción no se puede deshacer.',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#4E2A1A',
-      cancelButtonColor: '#aaa',
-      confirmButtonText: 'Sí, borrar',
-      cancelButtonText: 'Cancelar',
-      background: '#fff9f4',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        reservas.splice(index, 1);
-        guardarReservas(reservas);
-        renderTabla();
+    // ===============================
+    // limpiar formulario
+    // ===============================
+    function limpiarFormulario() {
+        frmReserva.reset();
+        editIndexInp.value = "";
+        if (!persInput.value || persInput.value === "0") {
+            persInput.value = "2";
+        }
+    }
+
+    // ===============================
+    // al presionar "Editar"
+    // ===============================
+    function onEditarClick(e) {
+        const idx = e.currentTarget.getAttribute('data-index');
+        const r = reservas[idx];
+
+        fechaInput.value  = r.fecha;
+        horaInput.value   = r.hora;
+        nombreInput.value = r.nombre;
+        dpiInput.value    = r.dpi;
+        mesaInput.value   = r.mesa;
+        persInput.value   = r.personas;
+
+        editIndexInp.value = idx;
 
         Swal.fire({
-          icon: 'success',
-          title: 'Reserva eliminada',
-          text: 'El registro fue borrado exitosamente.',
-          confirmButtonColor: '#4E2A1A',
-          background: '#fff9f4',
+            icon: 'info',
+            title: 'Editando reserva',
+            text: 'Modifica los datos y presiona "Guardar".',
+            timer: 1800,
+            showConfirmButton: false
         });
-      }
+    }
+
+    // ===============================
+    // al presionar "Borrar"
+    // ===============================
+    function onBorrarClick(e) {
+        const idx = e.currentTarget.getAttribute('data-index');
+        const r = reservas[idx];
+
+        Swal.fire({
+            title: `¿Borrar la reserva de ${r.nombre}?`,
+            text: `Mesa ${r.mesa} a las ${r.hora}`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, borrar',
+            cancelButtonText: 'Cancelar'
+        }).then(result => {
+            if (result.isConfirmed) {
+                reservas.splice(idx, 1);
+                guardarReservas(reservas);
+                renderTabla();
+
+                if (editIndexInp.value === idx) {
+                    limpiarFormulario();
+                }
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Eliminado',
+                    timer: 1300,
+                    showConfirmButton: false
+                });
+            }
+        });
+    }
+
+    // ===============================
+    // submit del formulario (Guardar)
+    // ===============================
+    frmReserva.addEventListener('submit', function(e) {
+        e.preventDefault(); // evita que se mande GET y recargue
+
+        const nuevaReserva = {
+            fecha: fechaInput.value.trim(),
+            hora: horaInput.value.trim(),
+            nombre: nombreInput.value.trim(),
+            dpi: dpiInput.value.trim(),
+            mesa: mesaInput.value.trim(),
+            personas: persInput.value.trim()
+        };
+
+        if (
+            !nuevaReserva.fecha ||
+            !nuevaReserva.hora ||
+            !nuevaReserva.nombre ||
+            !nuevaReserva.dpi ||
+            !nuevaReserva.mesa ||
+            !nuevaReserva.personas
+        ) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Campos incompletos',
+                text: 'Llena todos los campos antes de guardar.'
+            });
+            return;
+        }
+
+        const editIdx = editIndexInp.value;
+
+        if (editIdx === "" || editIdx === null) {
+            // NUEVA
+            reservas.push(nuevaReserva);
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Reserva guardada',
+                text: 'Se agregó correctamente.',
+                timer: 1500,
+                showConfirmButton: false
+            });
+
+        } else {
+            // EDITANDO
+            reservas[editIdx] = nuevaReserva;
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Reserva actualizada',
+                text: 'Los datos fueron modificados.',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        }
+
+        guardarReservas(reservas);
+        renderTabla();
+        limpiarFormulario();
     });
-  }
 
-  // EDITAR
-  if (target.classList.contains('btn-editar')) {
-    const index = target.getAttribute('data-index');
-    const reservas = cargarReservas();
-    const r = reservas[index];
+    // ===============================
+    // botón "Limpiar"
+    // ===============================
+    if (btnLimpiar) {
+        btnLimpiar.addEventListener('click', function() {
+            limpiarFormulario();
+        });
+    }
 
-    document.getElementById('fecha').value     = r.fecha;
-    document.getElementById('hora').value      = r.hora;
-    document.getElementById('nombre').value    = r.nombre;
-    document.getElementById('dpi').value       = r.dpi;
-    document.getElementById('mesa').value      = r.mesa;
-    document.getElementById('personas').value  = r.personas;
+    // ===============================
+    // inicio
+    // ===============================
+    renderTabla();
+    limpiarFormulario();
 
-    editIndex = parseInt(index, 10);
-    document.getElementById('btnGuardar').textContent = 'Actualizar';
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-});
+}); // <- fin DOMContentLoaded

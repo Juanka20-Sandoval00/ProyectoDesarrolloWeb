@@ -6,16 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reservas</title>
 
-  <!-- Tailwind solo para el sidebar que ya usas -->
+  <!-- Tailwind solo si lo usas para el sidebar -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="stylesheet" href="CSS/stylereservas.css?v=3">
   <meta name="theme-color" content="#4E2A1A"/>
+
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
 
 <div class="flex min-h-screen">
-  <!-- SIDEBAR ya está incluido arriba -->
+  <!-- SIDEBAR viene de SideBarEmpleado.php -->
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="flex-1 container section">
@@ -59,6 +62,9 @@
           </label>
         </div>
 
+        <!-- Campo oculto para saber si estoy editando -->
+        <input type="hidden" id="editIndex" value="">
+
         <!-- Botones -->
         <div class="p" style="display:flex; gap: 12px;">
           <button class="btn btn-primary" type="submit" id="btnGuardar">Guardar</button>
@@ -94,15 +100,8 @@
   </main>
 </div>
 
-<!-- ==============================
-     LÓGICA JS CON localStorage
-     ============================== -->
-<script>
-
-
-</script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="./JS/script_reserva.js"></script>
-
+<script src="JS/script_reserva.js"></script>
 </body>
 </html>
+
